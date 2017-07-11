@@ -16,6 +16,7 @@ def scrape_table(root):
     record = {}
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
+    print rows
     #for each row, loop through this
     for row in rows:
         #create a list of all cells <td> in that row
