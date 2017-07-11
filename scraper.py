@@ -16,7 +16,7 @@ def scrape_table(root):
     record = {}
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
-    print rows
+    print rows.text_content()
     #for each row, loop through this
     for row in rows:
         #create a list of all cells <td> in that row
@@ -63,7 +63,7 @@ def scrape_table(root):
                         record['Outcome:'] = table_cells[-1].text_content()
                         print record, '------------'
                         # Save the record to the datastore - 'ID' is our unique key - '''
-          print 'ALL DATA:', record
+          #print 'ALL DATA:', record
     scraperwiki.sqlite.save(['Date Filed and Judge'], record)
            
             
