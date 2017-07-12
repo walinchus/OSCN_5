@@ -128,7 +128,7 @@ scrape_table(root)'''
 
 
 def scrape_and_look_for_next_link(starting_url):
-    html = scraperwiki.scrape(url)
+    html = scraperwiki.scrape(starting_url)
     print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
