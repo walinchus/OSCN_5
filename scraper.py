@@ -129,7 +129,7 @@ scrape_table(root)'''
 
 def scrape_and_look_for_next_link(url):
     html = scraperwiki.scrape(url)
-        #print html
+    print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
     global i
