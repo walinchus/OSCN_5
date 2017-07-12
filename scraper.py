@@ -16,13 +16,14 @@ def scrape_table(root):
     record = {}
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
-    print rows.text_content()
     #for each row, loop through this
     for row in rows:
         #create a list of all cells <td> in that row
         table_cells = row.cssselect("td")
         if table_cells: 
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
+            Case_Style = table_cells[0].text_content()
+            print Case_Style
             record['Case Style'] = table_cells[0].text_content()
             record['Date Filed and Judge'] = table_cells[1].text_content()
             #record['Case Number'] = table_cells[0].strong.text_content()
