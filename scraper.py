@@ -4,7 +4,6 @@
 import scraperwiki
 import lxml.html
 import urlparse
-import scraperwiki
 import urllib2
 import lxml.etree
 import mechanize
@@ -127,8 +126,8 @@ scrape_table(root)'''
     print next_link'''
 
 
-def scrape_and_look_for_next_link(base_url):
-    html = scraperwiki.scrape(base_url)
+def scrape_and_look_for_next_link(url):
+    html = scraperwiki.scrape(url)
     print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
