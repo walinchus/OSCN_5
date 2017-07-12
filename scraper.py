@@ -9,6 +9,7 @@ import urllib2
 import lxml.etree
 import mechanize
 
+i = 1
 #next_link = 0
 
 def scrape_table(root):
