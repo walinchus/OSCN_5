@@ -9,7 +9,7 @@ import urllib2
 import lxml.etree
 import mechanize
 
-i = 1
+
 #next_link = 0
 
 def scrape_table(root):
@@ -147,6 +147,7 @@ base_url = 'http://www.oscn.net/dockets/'
 starting_url = urlparse.urljoin(base_url, 'GetCaseInformation.aspx?db=garfield&number=CF-2011-1')
 print starting_url
 global i
+i = 1
 #for i in range(0,1):
     #There are 743 cases but 468 appears to be the server request limit
 scrape_and_look_for_next_link(starting_url)     
