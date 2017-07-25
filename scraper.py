@@ -9,6 +9,7 @@ import mechanize
 import requests
 import lxml.html
 import sqlite3
+import xlsxwriter
 
 
 #next_link = 0
@@ -67,6 +68,10 @@ def scrape_table(root):
                         print record, '------------'
                         # Save the record to the datastore - 'ID' is our unique key - '''
     print 'ALL DATA:', record
+    workbook = xlsxwriter.Workbook('Oklahoma_Crimes.xlsx')
+    worksheet = workbook.add_worksheet()
+    worksheet.write(record)
+    workbook.close()
     scraperwiki.sqlite.save(unique_keys=['Date Filed and Judge'], data=record)
            
             
