@@ -11,7 +11,7 @@ import requests
 
 #next_link = 0
 
-def scrape_table(root):
+def scrape_table(html):
     #create a record to hold the data
     record = {}
     #grab all table rows <tr> in table class="tblSearchResults"
@@ -131,8 +131,8 @@ def scrape_and_look_for_next_link(url):
     page = requests.get(url)
     html = page.content
     print html
-    root = lxml.html.fromstring(html)
-    scrape_table(root)
+    #root = lxml.html.fromstring(html)
+    scrape_table(html)
     global i
     i = (i + 1)
     if i < 10:
