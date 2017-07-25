@@ -6,6 +6,7 @@ import lxml
 import urlparse
 import urllib2
 import mechanize
+import requests
 
 
 #next_link = 0
@@ -126,7 +127,9 @@ scrape_table(root)'''
 
 
 def scrape_and_look_for_next_link(url):
-    html = scraperwiki.scrape(url)
+    #html = scraperwiki.scrape(url)
+    page = requests.get(url)
+    html = page.content
     print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
@@ -137,6 +140,11 @@ def scrape_and_look_for_next_link(url):
         print next_url
         scrape_and_look_for_next_link(next_url)
 
+
+
+
+        
+        
 # ---------------------------------------------------------------------------
 # START HERE: define your starting URL - then 
 # call a function to scrape the first page in the series.
