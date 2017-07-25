@@ -16,7 +16,7 @@ def scrape_table(root):
     #create a record to hold the data
     record = {}
     #grab all table rows <tr> in table class="tblSearchResults"
-    rows = html.cssselect("table.caseStyle tr")
+    rows = root.cssselect("table.caseStyle tr")
     #for each row, loop through this
     for row in rows:
         #create a list of all cells <td> in that row
@@ -131,7 +131,7 @@ def scrape_and_look_for_next_link(url):
     #html = scraperwiki.scrape(url)
     page = requests.get(url)
     html = page.content
-    print html
+    #print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
     global i
