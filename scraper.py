@@ -11,7 +11,7 @@ import requests
 
 #next_link = 0
 
-def scrape_table(html):
+def scrape_table(root):
     #create a record to hold the data
     record = {}
     #grab all table rows <tr> in table class="tblSearchResults"
@@ -31,7 +31,7 @@ def scrape_table(html):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-        counts = html.cssselect("div.CountsContainer")
+        counts = root.cssselect("div.CountsContainer")
         countstotal = len(counts)
         print "total number of counts:", countstotal
         #countsrange = range(0, countstotal+1)
@@ -131,8 +131,8 @@ def scrape_and_look_for_next_link(url):
     page = requests.get(url)
     html = page.content
     print html
-    #root = lxml.html.fromstring(html)
-    scrape_table(html)
+    root = lxml.html.fromstring(html)
+    scrape_table(root)
     global i
     i = (i + 1)
     if i < 10:
