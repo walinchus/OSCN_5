@@ -24,7 +24,7 @@ def scrape_table(root):
         if table_cells: 
         #if there is a cell, record the contents in our dataset, the first cell [0] in 'recipient' and so on
             Case_Style = table_cells[0].text_content()
-            print Case_Style
+            #print Case_Style
             record['Case Style'] = table_cells[0].text_content()
             record['Date Filed and Judge'] = table_cells[1].text_content()
             #record['Case Number'] = table_cells[0].strong.text_content()
