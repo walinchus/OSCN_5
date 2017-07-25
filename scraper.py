@@ -8,6 +8,7 @@ import urllib2
 import mechanize
 import requests
 import lxml.html
+import sqlite3
 
 
 #next_link = 0
