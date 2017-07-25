@@ -15,7 +15,7 @@ def scrape_table(html):
     #create a record to hold the data
     record = {}
     #grab all table rows <tr> in table class="tblSearchResults"
-    rows = root.cssselect("table.caseStyle tr")
+    rows = html.cssselect("table.caseStyle tr")
     #for each row, loop through this
     for row in rows:
         #create a list of all cells <td> in that row
@@ -31,7 +31,7 @@ def scrape_table(html):
             #idno=idno+1
             #record['ID'] = idno 
             print record, '------------'
-        counts = root.cssselect("div.CountsContainer")
+        counts = html.cssselect("div.CountsContainer")
         countstotal = len(counts)
         print "total number of counts:", countstotal
         #countsrange = range(0, countstotal+1)
