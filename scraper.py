@@ -1,6 +1,7 @@
 
 # This is a template for a Python scraper on morph.io (https://morph.io)
 # including some code snippets below that you should find helpful
+sudo service morph restart
 import scraperwiki
 import lxml
 import urlparse
