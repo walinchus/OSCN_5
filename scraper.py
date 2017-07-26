@@ -10,7 +10,7 @@ import mechanize
 import requests
 import lxml.html
 import sqlite3
-import xlsxwriter
+#import xlsxwriter
 
 
 #next_link = 0
