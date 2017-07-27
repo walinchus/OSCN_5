@@ -10,9 +10,9 @@ import mechanize
 import requests
 import lxml.html
 import sqlite3
-#import xlsxwriter
+import time
 
-
+counties = ['adair','alfalfa','appellate','atoka','beaver','beckham','blaine','bryan','caddo','canadian','carter','cherokee','choctaw','cimarron','cleveland','coal','comanche','cotton','craig','creek','bristow','drumright','custer','delaware','dewey','ellis','garfield','garvin','grady','grant','greer','harmon','harper','haskell','hughes','jackson','jefferson','johnston','kay','poncacity','kingfisher','kiowa','latimer','leflore','lincoln','logan','love','major','marshall','mayes','mcclain','mccurtain','mcintosh','murray','muskogee','noble','nowata','okfuskee','oklahoma','okmulgee','henryetta','osage','ottawa','payne','pawnee','pittsburg','pontotoc','pottawatomie','pushmataha','rogermills','rogers','seminole','sequoyah','stephens','texas','tillman','tulsa','wagoner','washington','washita','woods','woodward']
 #next_link = 0
 
 def scrape_table(root):
@@ -69,10 +69,6 @@ def scrape_table(root):
                         print record, '------------'
                         # Save the record to the datastore - 'ID' is our unique key - '''
     print 'ALL DATA:', record
-    '''workbook = xlsxwriter.Workbook('Oklahoma_Crimes.xlsx')
-    worksheet = workbook.add_worksheet()
-    worksheet.write(record)
-    workbook.close()'''
     scraperwiki.sqlite.save(unique_keys=['Date Filed and Judge'], data=record)
            
             
@@ -141,12 +137,13 @@ def scrape_and_look_for_next_link(url):
     #print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
-    global i
-    i = (i + 1)
-    if i < 10:
-        next_url = base_url+'GetCaseInformation.aspx?db=garfield&number=CF-2011-'+str(i)
-        print next_url
-        scrape_and_look_for_next_link(next_url)
+    for county in counties
+        global i
+        i = (i + 1)
+        if i < 10:
+            next_url = base_url+'GetCaseInformation.aspx?db='county'&number=CF-2011-'+str(i)
+            print next_url
+            scrape_and_look_for_next_link(next_url)
 
 
 
