@@ -149,9 +149,9 @@ def scrape_and_look_for_next_link(url):
                 print '%d * %d = %d' % (x, y, x*y)'''
     for county in counties:
         for CaseEndingNumber in CaseEndingNumbers:
+            print "base_url+'GetCaseInformation.aspx?db='+'%s'+'&number=CF-'+str(year)+'-'+'%s'" % (county, CaseEndingNumber)
             return "base_url+'GetCaseInformation.aspx?db='+'%s'+'&number=CF-'+str(year)+'-'+'%s'" % (county, CaseEndingNumber)
-            #print 
-            next_url = scrape_and_look_for_next_link()
+            next_url = "base_url+'GetCaseInformation.aspx?db='+'%s'+'&number=CF-'+str(year)+'-'+'%s'" % (county, CaseEndingNumber)
             print next_url
             record = {}
             record['URL'] = next_url
