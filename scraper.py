@@ -18,7 +18,6 @@ counties = ['adair','alfalfa','appellate','atoka','beaver','beckham','blaine','b
 def scrape_table(root):
     #create a record to hold the data
     record = {}
-    record['URL'] = next_url
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
     #for each row, loop through this
@@ -144,6 +143,7 @@ def scrape_and_look_for_next_link(url):
         for county in counties:
             next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-2011-'+str(i)
             print next_url
+            #record['URL'] = next_url
             scrape_and_look_for_next_link(next_url)
 
 
