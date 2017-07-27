@@ -144,7 +144,7 @@ def scrape_and_look_for_next_link(url):
     #while i < 10:
     for CaseEndingNumber in range(1,10):
         for county in counties:
-            next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-'+year+'-'+str(CaseEndingNumber)
+            next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-'+str(year)+'-'+str(CaseEndingNumber)
             print next_url
             record = {}
             record['URL'] = next_url
