@@ -18,6 +18,7 @@ counties = ['adair','alfalfa','appellate','atoka','beaver','beckham','blaine','b
 def scrape_table(root):
     #create a record to hold the data
     record = {}
+    record['URL'] = next_url
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
     #for each row, loop through this
@@ -136,11 +137,11 @@ def scrape_and_look_for_next_link(url):
     html = page.content
     #print html
     root = lxml.html.fromstring(html)
-    scrape_table(root)
-    for county in counties:
-        global i
-        i = (i + 1)
-        if i < 10:
+    scrape_table(root)    
+    global i
+    i = (i + 1)
+    if i < 10:
+        for county in counties:
             next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-2011-'+str(i)
             print next_url
             scrape_and_look_for_next_link(next_url)
