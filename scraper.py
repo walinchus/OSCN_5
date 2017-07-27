@@ -137,14 +137,16 @@ def scrape_and_look_for_next_link(url):
     #print html
     root = lxml.html.fromstring(html)
     scrape_table(root)    
-    global i
-    i = (i + 1)
-    if i < 10:
+    #global i
+    #i = (i + 1)
+    #if i < 10:
+    while i < 10:
         for county in counties:
-            next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-2011-'+str(i)
-            print next_url
-            #record['URL'] = next_url
-            scrape_and_look_for_next_link(next_url)
+           next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-2011-'+str(i)
+           print next_url
+           #record['URL'] = next_url
+           scrape_and_look_for_next_link(next_url)
+           i = (i + 1)
 
 
 
