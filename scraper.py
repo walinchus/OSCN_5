@@ -153,6 +153,7 @@ def scrape_and_look_for_next_link(url):
             record = {}
             record['URL'] = next_url
             scrape_and_look_for_next_link(next_url)
+            CaseEndingNumber += 1
            
 
 
