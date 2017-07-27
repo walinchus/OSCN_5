@@ -141,7 +141,7 @@ def scrape_and_look_for_next_link(url):
         global i
         i = (i + 1)
         if i < 10:
-            next_url = base_url+'GetCaseInformation.aspx?db='county'&number=CF-2011-'+str(i)
+            next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-2011-'+str(i)
             print next_url
             scrape_and_look_for_next_link(next_url)
 
