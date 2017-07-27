@@ -137,7 +137,8 @@ def scrape_and_look_for_next_link(url):
     html = page.content
     #print html
     root = lxml.html.fromstring(html)
-    scrape_table(root)    
+    scrape_table(root)
+    CaseEndingNumber += 1
     global i
     #i = (i + 1)
     #if i < 10:
