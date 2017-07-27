@@ -14,6 +14,7 @@ import time
 
 counties = ['adair','alfalfa','appellate','atoka','beaver','beckham','blaine','bryan','caddo','canadian','carter','cherokee','choctaw','cimarron','cleveland','coal','comanche','cotton','craig','creek','bristow','drumright','custer','delaware','dewey','ellis','garfield','garvin','grady','grant','greer','harmon','harper','haskell','hughes','jackson','jefferson','johnston','kay','poncacity','kingfisher','kiowa','latimer','leflore','lincoln','logan','love','major','marshall','mayes','mcclain','mccurtain','mcintosh','murray','muskogee','noble','nowata','okfuskee','oklahoma','okmulgee','henryetta','osage','ottawa','payne','pawnee','pittsburg','pontotoc','pottawatomie','pushmataha','rogermills','rogers','seminole','sequoyah','stephens','texas','tillman','tulsa','wagoner','washington','washita','woods','woodward']
 #next_link = 0
+year = 2011
 
 def scrape_table(root):
     #create a record to hold the data
@@ -140,13 +141,13 @@ def scrape_and_look_for_next_link(url):
     global i
     #i = (i + 1)
     #if i < 10:
-    while i < 10:
+    #while i < 10:
+    for CaseEndingNumber in range(1,10):
         for county in counties:
-           next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-2011-'+str(i)
-           print next_url
-           i = (i + 1)
-           #record['URL'] = next_url
-           scrape_and_look_for_next_link(next_url)
+            next_url = base_url+'GetCaseInformation.aspx?db='+county+'&number=CF-'+year+'-'+CaseEndingNumber
+               print next_url
+               #record['URL'] = next_url
+               scrape_and_look_for_next_link(next_url)
            
 
 
