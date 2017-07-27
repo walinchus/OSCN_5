@@ -137,7 +137,7 @@ def scrape_and_look_for_next_link(url):
     #print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
-    for county in counties
+    for county in counties:
         global i
         i = (i + 1)
         if i < 10:
