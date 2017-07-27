@@ -137,7 +137,7 @@ def scrape_and_look_for_next_link(url):
     #print html
     root = lxml.html.fromstring(html)
     scrape_table(root)    
-    #global i
+    global i
     #i = (i + 1)
     #if i < 10:
     while i < 10:
