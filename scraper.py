@@ -14,15 +14,19 @@ import time
 
 counties = ['adair','alfalfa','appellate','atoka','beaver','beckham','blaine','bryan','caddo','canadian','carter','cherokee','choctaw','cimarron','cleveland','coal','comanche','cotton','craig','creek','bristow','drumright','custer','delaware','dewey','ellis','garfield','garvin','grady','grant','greer','harmon','harper','haskell','hughes','jackson','jefferson','johnston','kay','poncacity','kingfisher','kiowa','latimer','leflore','lincoln','logan','love','major','marshall','mayes','mcclain','mccurtain','mcintosh','murray','muskogee','noble','nowata','okfuskee','oklahoma','okmulgee','henryetta','osage','ottawa','payne','pawnee','pittsburg','pontotoc','pottawatomie','pushmataha','rogermills','rogers','seminole','sequoyah','stephens','texas','tillman','tulsa','wagoner','washington','washita','woods','woodward']
 #next_link = 0
-year = 2011
-CaseEndingNumbers= ['1','2','3','4','5','6','7','8','9','10']
+years = ['2011','2012','2013','2014','2015','2016','2017']
+CrimeSeverity = ['CF','CM']
+def CaseEndingNumbers():
+    for x in range(1, 10):
+        yield '%d' % x
+ListofCaseEndingNumbers = list(CaseEndingNumbers())
 
 def GetOklahomaStateCases():
     for county in counties:
         for CaseEndingNumber in ListOfCaseEndingNumbers:
             for year in years:
                 for severity in CrimeSeverity:
-                    yield 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severitity, year, CaseEndingNumber)
+                    yield 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severity, year, CaseEndingNumber)
 
 def scrape_table(root):
     #create a record to hold the data
@@ -82,63 +86,6 @@ def scrape_table(root):
            
             
 
-
-
-'''br = mechanize.Browser()
-br.set_handle_robots( False )
-br.open("http://www.oscn.net/dockets/Search.aspx")
-for f in br.forms():
-    print f
-formcount=0
-for frm in br.forms():  
-    if frm.attrs[class] == "search-form":
-        break
-        formcount=formcount+1
-        br.select_form(nr=formcount)
-#br.select_form('form')
-        br.form[ 'db' ] = ['garfield',]
-#Get the search results
-        br.submit()
-br.select_form(nr=0)
-print br.form
-br['db'] = ['garfield']
-br['dcct'] = ['31']
-br['FiledDateL'] = str('01/01/2011')
-print br
-response = br.submit()
-print response
-html = response.read()
-print html
-root = lxml.html.fromstring(html)
-scrape_table(root)'''
-
-
-'''case_numbers =['5237521','5244439','5237629','5237823','5234026']
-55 #go through the schoolIDs list above, and for each ID...
-56 for item in schoolIDs:
-57 #show it in the console
-58 print item
-59 #create a URL called 'next_link' which adds that ID to the end of the base_url variable
-60 next_link = base_url+item+'.html'
-61 #pass that new concatenated URL to a function, 'scrape_page', which is scripted above
-62 scrape_page(next_link)'''
-
-
-'''def addNumbers(num)
-    sum=0
-    for i in range(0,num+1)
-        sum=sum+i
-    return sum'''
-
-'''def Add_Case_No():
-    for i in range(1,744):
-        global next_link
-        nextlink = 0
-        next_link= next_link + i
-    return next_link    
-    print next_link'''
-
-
 def scrape_and_look_for_next_link(url):
     #html = scraperwiki.scrape(url)
     page = requests.get(url)
@@ -154,15 +101,13 @@ def scrape_and_look_for_next_link(url):
     '''for x in range(1, 11):
             for y in range(1, 11):
                 print '%d * %d = %d' % (x, y, x*y)'''
-    for county in counties:
-        for CaseEndingNumber in CaseEndingNumbers:
-            print "base_url+'GetCaseInformation.aspx?db='+'%s'+'&number=CF-'+str(year)+'-'+'%s'" % (county, CaseEndingNumber)
-            return "base_url+'GetCaseInformation.aspx?db='+'%s'+'&number=CF-'+str(year)+'-'+'%s'" % (county, CaseEndingNumber)
-            next_url = base_url+'GetCaseInformation.aspx?db='+'%s'+'&number=CF-'+str(year)+'-'+'%s' % (county, CaseEndingNumber)
-            print next_url
-            record = {}
-            record['URL'] = next_url
-            scrape_and_look_for_next_link(next_url)
+    ListofOKCases = list(GetOklahomaStateCases())
+    for CaseURL in ListofOKCases[1,10]
+     next_url = CaseURL
+     print next_url
+     record = {}
+     record['URL'] = next_url
+     scrape_and_look_for_next_link(next_url)
             #CaseEndingNumber += 1
            
 
@@ -182,6 +127,7 @@ global i
 i = 1
 #for i in range(0,1):
     #There are 743 cases but 468 appears to be the server request limit
+GetOklahomaCases()
 scrape_and_look_for_next_link(starting_url)     
     
     
