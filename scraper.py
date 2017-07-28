@@ -98,7 +98,6 @@ def scrape_and_look_for_next_link(url):
     global i
     i = (i + 1)
     if i < 450:
-        global next_url
         next_url = ListofOKCases[i]
         print next_url
         record = {}
@@ -107,7 +106,6 @@ def scrape_and_look_for_next_link(url):
         scrape_and_look_for_next_link(next_url)
     time.sleep(10)
     if 450 < i < 900:
-        global next_url
         next_url = ListofOKCases[i]
         print next_url
         record = {}
