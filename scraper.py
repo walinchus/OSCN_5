@@ -27,7 +27,7 @@ def GetOklahomaStateCases():
         for CaseEndingNumber in ListOfCaseEndingNumbers:
             for year in years:
                 for severity in CrimeSeverity:
-                    print 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severity, year, CaseEndingNumber)
+                    yield 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severity, year, CaseEndingNumber)
 
 def scrape_table(root):
     #create a record to hold the data
@@ -95,19 +95,19 @@ def scrape_and_look_for_next_link(url):
     root = lxml.html.fromstring(html)
     scrape_table(root)
     #CaseEndingNumber += 1
-    global i
+    #global i
     #i = (i + 1)
     #if i < 10:
     #while i < 10:
     '''for x in range(1, 11):
             for y in range(1, 11):
                 print '%d * %d = %d' % (x, y, x*y)'''
-    for CaseURL in ListofOKCases[1:10]:
-     next_url = CaseURL
-     print next_url
-     record = {}
-     record['URL'] = next_url
-     scrape_and_look_for_next_link(next_url)
+    for x in range (1,10):
+        next_url = ListofOKCases[x]
+        print next_url
+        record = {}
+        record['URL'] = next_url
+        scrape_and_look_for_next_link(next_url)
             #CaseEndingNumber += 1
            
 
