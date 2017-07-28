@@ -102,7 +102,6 @@ def scrape_and_look_for_next_link(url):
     '''for x in range(1, 11):
             for y in range(1, 11):
                 print '%d * %d = %d' % (x, y, x*y)'''
-    ListofOKCases = list(GetOklahomaStateCases())
     for CaseURL in ListofOKCases[1:10]:
      next_url = CaseURL
      print next_url
@@ -131,6 +130,7 @@ i = 1
 CaseEndingNumbers()
 ListOfCaseEndingNumbers = list(CaseEndingNumbers())
 GetOklahomaStateCases()
+ListofOKCases = list(GetOklahomaStateCases())
 scrape_and_look_for_next_link(starting_url)     
     
     
