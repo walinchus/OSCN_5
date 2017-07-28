@@ -17,6 +17,13 @@ counties = ['adair','alfalfa','appellate','atoka','beaver','beckham','blaine','b
 year = 2011
 CaseEndingNumbers= ['1','2','3','4','5','6','7','8','9','10']
 
+def GetOklahomaStateCases():
+    for county in counties:
+        for CaseEndingNumber in ListOfCaseEndingNumbers:
+            for year in years:
+                for severity in CrimeSeverity:
+                    print 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severitity, year, CaseEndingNumber)
+
 def scrape_table(root):
     #create a record to hold the data
     record = {}
