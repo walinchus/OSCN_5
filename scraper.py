@@ -32,8 +32,6 @@ def GetOklahomaStateCases():
 def scrape_table(root):
     #create a record to hold the data
     record = {}
-    CaseIdentifier = root.cssselect("div.sized a")        
-    record['URL'] = CaseIdentifier
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
     #for each row, loop through this
@@ -103,9 +101,9 @@ def scrape_and_look_for_next_link(url):
         global next_url
         next_url = ListofOKCases[i]
         print next_url
-        #record = {}
-        #record['URL'] = next_url
-        #scraperwiki.sqlite.save(['URL'], record)
+        record = {}
+        record['URL'] = next_url
+        scraperwiki.sqlite.save(['URL'], record)
         scrape_and_look_for_next_link(next_url)
            
         
