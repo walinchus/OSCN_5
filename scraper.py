@@ -99,10 +99,6 @@ def scrape_and_look_for_next_link(url):
     i = (i + 1)
     if i < 10:
     #while i < 10:
-    '''for x in range(1, 11):
-            for y in range(1, 11):
-                print '%d * %d = %d' % (x, y, x*y)'''
-    
     next_url = ListofOKCases[i]
     print next_url
     record = {}
