@@ -103,7 +103,7 @@ def scrape_and_look_for_next_link(url):
         print next_url
         record = {}
         record['URL'] = next_url
-        scraperwiki.sqlite.save(['URL'])
+        scraperwiki.sqlite.save(['URL'], record)
         scrape_and_look_for_next_link(next_url)
            
         
