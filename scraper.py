@@ -99,11 +99,10 @@ def scrape_and_look_for_next_link(url):
     global i
     i = (i + 1)
     if i < 10:
-    #while i < 10:
+        global next_url
         next_url = ListofOKCases[i]
         print next_url
-        global next_url
-        record = {}
+        #record = {}
         #record['URL'] = next_url
         #scraperwiki.sqlite.save(['URL'], record)
         scrape_and_look_for_next_link(next_url)
