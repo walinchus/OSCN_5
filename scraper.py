@@ -18,7 +18,7 @@ years = ['2011','2012','2013','2014','2015','2016','2017']
 CrimeSeverity = ['CF','CM']
 
 def CaseEndingNumbers():
-    for x in range(1, 5):
+    for x in range(1, 4581):
         yield '%d' % x
         
 
@@ -97,7 +97,7 @@ def scrape_and_look_for_next_link(url):
     #CaseEndingNumber += 1
     global i
     i = (i + 1)
-    if i < 10:
+    if i < 450:
         global next_url
         next_url = ListofOKCases[i]
         print next_url
@@ -105,6 +105,16 @@ def scrape_and_look_for_next_link(url):
         record['URL'] = next_url
         scraperwiki.sqlite.save(['URL'], record)
         scrape_and_look_for_next_link(next_url)
+     time.sleep(10)
+     if i > 450 and < 900:
+        global next_url
+        next_url = ListofOKCases[i]
+        print next_url
+        record = {}
+        record['URL'] = next_url
+        scraperwiki.sqlite.save(['URL'], record)
+        scrape_and_look_for_next_link(next_url)   
+        
            
         
         
