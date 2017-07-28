@@ -22,6 +22,7 @@ def CaseEndingNumbers():
 ListofCaseEndingNumbers = list(CaseEndingNumbers())
 
 def GetOklahomaStateCases():
+    ListofCaseEndingNumbers = list(CaseEndingNumbers())
     for county in counties:
         for CaseEndingNumber in ListOfCaseEndingNumbers:
             for year in years:
@@ -127,6 +128,7 @@ global i
 i = 1
 #for i in range(0,1):
     #There are 743 cases but 468 appears to be the server request limit
+CaseEndingNumbers()
 GetOklahomaStateCases()
 scrape_and_look_for_next_link(starting_url)     
     
