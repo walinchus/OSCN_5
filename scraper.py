@@ -32,7 +32,9 @@ def GetOklahomaStateCases():
 def scrape_table(root):
     #create a record to hold the data
     record = {}
-    record['URL'] = next_url
+    CaseIdentifier = root.cssselect("div.sized a")[1]           
+    print CaseIdentifier
+    record['URL'] = CaseIdentifier
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
     #for each row, loop through this
