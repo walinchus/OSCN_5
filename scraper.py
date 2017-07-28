@@ -33,8 +33,7 @@ def scrape_table(root):
     #create a record to hold the data
     record = {}
     CaseIdentifier = root.cssselect("div.sized a")        
-    print CaseIdentifier.tag[1]
-    record['URL'] = CaseIdentifier.tag[1]
+    record['URL'] = CaseIdentifier
     #grab all table rows <tr> in table class="tblSearchResults"
     rows = root.cssselect("table.caseStyle tr")
     #for each row, loop through this
