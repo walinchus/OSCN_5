@@ -20,7 +20,7 @@ CrimeSeverity = ['CF','CM']
 def CaseEndingNumbers():
     for x in range(1, 10):
         yield '%d' % x
-        ListofCaseEndingNumbers = list(CaseEndingNumbers())
+        ListOfCaseEndingNumbers = list(CaseEndingNumbers())
 
 def GetOklahomaStateCases():
     CaseEndingNumbers()
