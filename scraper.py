@@ -99,17 +99,12 @@ def scrape_and_look_for_next_link(url):
     i = (i + 1)
     if i < 10:
     #while i < 10:
-    next_url = ListofOKCases[i]
-    print next_url
-    record = {}
-    record['URL'] = next_url
-    scrape_and_look_for_next_link(next_url)
-            #CaseEndingNumber += 1
+        next_url = ListofOKCases[i]
+        print next_url
+        record = {}
+        record['URL'] = next_url
+        scrape_and_look_for_next_link(next_url)
            
-
-
-
-
         
         
 # ---------------------------------------------------------------------------
