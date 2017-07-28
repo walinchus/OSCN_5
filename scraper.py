@@ -26,7 +26,7 @@ def GetOklahomaStateCases():
     for county in counties:
         for CaseEndingNumber in ListOfCaseEndingNumbers:
             for year in years:
-                for severity in CrimeSeverity
+                for severity in CrimeSeverity:
                     print 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severity, year, CaseEndingNumber)
 
 def scrape_table(root):
