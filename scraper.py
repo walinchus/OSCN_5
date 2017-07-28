@@ -18,7 +18,7 @@ years = ['2011','2012','2013','2014','2015','2016','2017']
 CrimeSeverity = ['CF','CM']
 
 def CaseEndingNumbers():
-    for x in range(1, 10):
+    for x in range(1, 5):
         yield '%d' % x
         
 
@@ -26,8 +26,8 @@ def GetOklahomaStateCases():
     for county in counties:
         for CaseEndingNumber in ListOfCaseEndingNumbers:
             for year in years:
-                for severity in CrimeSeverity:
-                    yield 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severity, year, CaseEndingNumber)
+                for severity in CrimeSeverity
+                    print 'http://www.oscn.net/dockets/GetCaseInformation.aspx?db=%s&number=%s-%s-%s' % (county, severity, year, CaseEndingNumber)
 
 def scrape_table(root):
     #create a record to hold the data
